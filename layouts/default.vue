@@ -288,10 +288,12 @@ export default {
   padding-top: 15%;
   z-index: 2;
   padding-top: 10%;
+  
 }
 .drawer-item {
-  padding: 20px;
+  padding: 10px;
   cursor: pointer;
+  font-size: 0.8em;
 }
 .drawer-item:hover {
   background-color: gray;
