@@ -18,7 +18,7 @@
             class="hamburger"
             d-lg
             :class="{ active: openMenu }"
-            @click="openMenu = !openMenu"
+            @click=";(drawer = !drawer), (openMenu = drawer)"
           >
             <span class="line"></span>
             <span class="line"></span>
@@ -50,9 +50,14 @@
           CATEGORIA</v-flex
         >
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          CATEGORIA</v-flex
-        >
+          Bolsa
+          <font-awesome-icon
+            icon="fa-solid fa-shopping-bag"
+            font-size="1.25em"
+          />
+        </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
+          Perfil
           <font-awesome-icon
             icon="fa-solid fa-circle-user"
             font-size="1.25em"
@@ -61,38 +66,63 @@
         <v-flex class="text-center hidden-md-and-up"></v-flex>
       </v-layout>
     </v-app-bar>
-    <!-- Navigation drawer for small xs and s devices -->
-    <v-navigation-drawer v-model="drawer" absolute temporary>
-      <v-list-item> Kuatrema </v-list-item>
-      <v-divider></v-divider>
+
+    <!-- Navigation drawer for  xs and s devices -->
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      color="#0f0f0f"
+      dark
+      temporary
+      class="drawer"
+    >
+      <v-list-item class="drawer-title"> K U A T R E M A </v-list-item>
+
       <v-list dense>
-        <v-list-item>
+        <v-list-item class="drawer-item">
           <v-list-item-content> CATEGORIA </v-list-item-content>
         </v-list-item>
 
-        <v-list-item>
+        <v-list-item class="drawer-item">
           <v-list-item-content> CATEGORIA </v-list-item-content>
         </v-list-item>
 
-        <v-list-item>
+        <v-list-item class="drawer-item">
           <v-list-item-content> CATEGORIA </v-list-item-content>
         </v-list-item>
 
-        <v-list-item>
+        <v-list-item class="drawer-item">
           <v-list-item-content> CATEGORIA </v-list-item-content>
         </v-list-item>
 
-        <v-list-item>
-          <v-list-item-content> CATEGORIA </v-list-item-content>
+        <v-list-item class="drawer-item">
+          <v-list-item-content> Cesta </v-list-item-content>
+          <v-list-item-avatar>
+            <font-awesome-icon icon="fa-solid fa-bag-shopping" />
+          </v-list-item-avatar>
+        </v-list-item>
+
+        <v-list-item class="drawer-item">
+          <v-list-item-content> Perfil</v-list-item-content>
+          <v-list-item-avatar>
+            <font-awesome-icon icon="fa-solid fa-circle-user" />
+          </v-list-item-avatar>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
     <!-- The contents of each page, they are generated outside of the layouts -->
     <v-main>
       <Nuxt></Nuxt>
     </v-main>
+
     <!-- Footer part of the page -->
-    <v-footer app padless color="#0f0f0f" class="white--text text-center">
+    <v-footer
+      app
+      padless
+      color="#0f0f0f"
+      class="white--text text-center footer"
+    >
       <v-row justify="center" no-gutters>
         <v-btn
           v-for="link in links"
@@ -142,7 +172,7 @@
       >
         <font-awesome-icon
           icon="fa-solid fa-arrow-up"
-          color="white"
+          color="#0f0f0f"
           font-size="2em"
         />
       </v-btn>
@@ -155,6 +185,7 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
+      //  scroll value
       fab: false,
       // exporting the logo from assets folder
       title: 'KUATREMA',
@@ -169,6 +200,8 @@ export default {
       ],
       // hamburger menu value
       openMenu: false,
+      // drawer value
+      drawer: false,
     }
   },
 
@@ -197,7 +230,7 @@ export default {
 }
 .cat {
   transition: transform 0.2s;
-  font-size: 0.9em;
+  font-size: 0.75em;
   padding-top: 0.25em;
   width: 5em;
   font-weight: 500;
@@ -227,6 +260,7 @@ export default {
   border: none;
   outline: none;
   cursor: pointer;
+  z-index: 10;
 }
 .hamburger .line {
   display: block;
@@ -236,15 +270,31 @@ export default {
   margin-block: 8px;
   border-radius: 4px;
   transition: transform 0.5s, opacity 0.25s;
+  z-index: 10;
 }
 .hamburger.active .line:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
+  z-index: 10;
 }
 .hamburger.active .line:nth-child(2) {
   opacity: 0;
 }
 .hamburger.active .line:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
+  z-index: 10;
+}
+/* drawer styles */
+.drawer {
+  padding-top: 15%;
+  z-index: 2;
+  padding-top: 10%;
+}
+.drawer-item {
+  padding: 20px;
+  cursor: pointer;
+}
+.drawer-item:hover {
+  background-color: gray;
 }
 /* footer styles */
 </style>
