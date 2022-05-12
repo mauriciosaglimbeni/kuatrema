@@ -255,6 +255,20 @@ export default {
   opacity: 0.95;
   transform: scale(1.2, 1.2);
 }
+@media only screen and (max-width: 670px) {
+  .logo {
+    position: fixed;
+    top: 4px;
+    left: 40%;
+  }
+}
+@media only screen and (max-width: 370) {
+  .logo {
+    position: fixed;
+    top: 4px;
+    left: 38%;
+  }
+}
 /* Hamburger icon styles */
 .hamburger {
   border: none;
@@ -285,13 +299,13 @@ export default {
 }
 /* drawer styles */
 .drawer {
-  padding-top: 15%;
   z-index: 2;
   padding-top: 10%;
 }
 .drawer-item {
-  padding: 20px;
+  padding: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 .drawer-item:hover {
   background-color: gray;
