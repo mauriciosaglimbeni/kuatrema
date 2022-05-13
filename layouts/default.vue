@@ -120,6 +120,7 @@
     <v-footer
       app
       padless
+      absolute
       color="#0f0f0f"
       class="white--text text-center footer"
     >
@@ -299,7 +300,7 @@ export default {
 }
 /* drawer styles */
 .drawer {
-  z-index: 2;
+  z-index: 3;
   padding-top: 10%;
 }
 .drawer-item {
