@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import en from './locales/en.json'
+import es from './locales/es.json'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -18,14 +20,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@fortawesome/fontawesome-svg-core/styles.css'
-  ],
+  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/fontawesome.js'
-  ],
+  plugins: ['~/plugins/fontawesome.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -36,10 +34,12 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    
+    
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/i18n'],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -57,6 +57,24 @@ export default {
           success: colors.green.accent3,
         },
       },
+    },
+  },
+  // Language module configuration
+  i18n: {
+    locales: [
+      {
+         code: 'en',
+         name: 'EN'
+      },
+      {
+         code: 'es',
+         name: 'ES'
+      }
+    ],
+    defaultLocale: 'es',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {en, es}
     },
   },
 

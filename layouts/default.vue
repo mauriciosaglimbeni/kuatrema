@@ -27,19 +27,18 @@
         </v-flex>
         <!-- Standard navbar -->
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          CATEGORIA</v-flex
-        >
+          <p>{{ $t('header1') }}</p>
+        </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          CATEGORIA</v-flex
-        >
+          {{ $t('header2') }}
+        </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          CATEGORIA</v-flex
-        >
+          {{ $t('header3') }}
+        </v-flex>
         <nuxt-link to="/">
           <!-- logo -->
           <v-img
-            :lazy-src="logo"
-            :src="logo"
+            src='https://horciong.sirv.com/logo.png'
             max-width="100px"
             max-height="100px"
             style="background-color: #68ffd1; border-radius: 100%"
@@ -47,17 +46,17 @@
           ></v-img>
         </nuxt-link>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          CATEGORIA</v-flex
-        >
+          {{ $t('header4') }}
+        </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          Bolsa
+          {{ $t('header5') }}
           <font-awesome-icon
             icon="fa-solid fa-shopping-bag"
             font-size="1.25em"
           />
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          Perfil
+          {{ $t('header6') }}
           <font-awesome-icon
             icon="fa-solid fa-circle-user"
             font-size="1.25em"
@@ -80,30 +79,30 @@
 
       <v-list dense>
         <v-list-item class="drawer-item">
-          <v-list-item-content> CATEGORIA </v-list-item-content>
+          <v-list-item-content> {{ $t('header1') }} </v-list-item-content>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> CATEGORIA </v-list-item-content>
+          <v-list-item-content> {{ $t('header2') }} </v-list-item-content>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> CATEGORIA </v-list-item-content>
+          <v-list-item-content> {{ $t('header3') }} </v-list-item-content>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> CATEGORIA </v-list-item-content>
+          <v-list-item-content> {{ $t('header4') }} </v-list-item-content>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> Cesta </v-list-item-content>
+          <v-list-item-content> {{ $t('header5') }} </v-list-item-content>
           <v-list-item-avatar>
             <font-awesome-icon icon="fa-solid fa-bag-shopping" />
           </v-list-item-avatar>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> Perfil</v-list-item-content>
+          <v-list-item-content> {{ $t('header6') }}</v-list-item-content>
           <v-list-item-avatar>
             <font-awesome-icon icon="fa-solid fa-circle-user" />
           </v-list-item-avatar>
@@ -133,17 +132,19 @@
           rounded
           class="my-2"
         >
-          {{ link }}
+          {{ $t(link) }}
         </v-btn>
         <v-col cols="12">
           <v-btn icon dark>
+            <a href="https://www.instagram.com/kuatrema" style="color=white; text-decoration=none"> 
             <font-awesome-icon
               icon="fa-brands fa-instagram"
               font-size="1.5em"
             />
+            </a>
           </v-btn>
           <v-btn icon dark>
-            <font-awesome-icon icon="fa-brands fa-youtube" font-size="1.5em" />
+           <a href="https://www.youtube.com/channel/UCid-Uf7LzHHaOxx-5x3TdZw" style="color=white; text-decoration=none"> <font-awesome-icon icon="fa-brands fa-youtube" font-size="1.5em" /></a>
           </v-btn>
           <v-btn icon dark>
             <font-awesome-icon icon="fa-brands fa-twitter" font-size="1.5em" />
@@ -153,7 +154,8 @@
           <v-divider></v-divider>
         </v-col>
         <v-col cols="12">
-          <span>
+          <languageInput></languageInput>
+          <span class="right-side">
             {{ new Date().getFullYear() }} —
             <strong>Kuatrema &trade; </strong></span
           >
@@ -190,14 +192,13 @@ export default {
       fab: false,
       // exporting the logo from assets folder
       title: 'KUATREMA',
-      logo: require('../assets/logo.png'),
       // exporting the footer link names
       links: [
-        'Inicio',
-        'Productos',
-        'Diseños',
-        'Sobre nosotros',
-        'Contáctanos',
+        'footer1',
+        'footer2',
+        'footer3',
+        'footer4',
+        'footer5',
       ],
       // hamburger menu value
       openMenu: false,
@@ -312,4 +313,10 @@ export default {
   background-color: gray;
 }
 /* footer styles */
+.right-side{
+  float:right
+}
+.v-application a{
+  all: unset;
+}
 </style>

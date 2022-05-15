@@ -5,25 +5,30 @@
         class="overlay"
         href="https://www.youtube.com/watch?v=2CKyOQxg9sI"
         target="_blank"
-        ><span>Ver Ahora</span></a
+        ><span>{{ $t('player') }}</span></a
       >
-      <video autoplay muted loop>
-        <source :src="video" />
+      <video
+        autoplay
+        muted
+        loop
+        poster="https://horciong.sirv.com/KuatremaAdd1.mp4?thumbnail=1920"
+      >
+        <source
+          src="https://horciong.sirv.com/KuatremaAdd1.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
       </video>
     </div>
   </client-only>
 </template>
 
 <script>
-// import VueVideoSection from 'vue-video-section'
 export default {
   name: 'PlayerVue',
   // components: { VueVideoSection },
   data() {
-    return {
-      // video source
-      video: require('../../assets/KuatremaAdd1.mp4'),
-    }
+    return {}
   },
 }
 </script>
@@ -33,16 +38,17 @@ export default {
   margin-bottom: 1.5em;
   height: auto;
   width: 100%;
+  height: min-content;
   @media (min-width: 960px) {
-    height: 70%;
+    height: 80vh;
   }
 }
 video {
   object-fit: fill;
   width: 100%;
+  height: 100%;
   z-index: 0;
   @media (min-width: 960px) {
-    width: 100%;
     height: 100%;
     object-fit: fill;
   }
