@@ -1,4 +1,5 @@
  {
+
     "header1": "Sudaderas",
     "header2": "Camisetas",
     "header3": "Productos",
@@ -14,4 +15,6 @@
     "featTitle1": "OFERTAS",
     "featTitle2": "POPULAR",
     "featAction": "Ver todo"
+
+    
   }

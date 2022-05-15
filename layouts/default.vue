@@ -33,12 +33,12 @@
           {{ $t('header2') }}
         </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          {{ $t('header3') }}
+          <nuxt-link to="/products"> {{ $t('header3') }} </nuxt-link>
         </v-flex>
         <nuxt-link to="/">
           <!-- logo -->
           <v-img
-            src='https://horciong.sirv.com/logo.png'
+            src="https://horciong.sirv.com/logo.png"
             max-width="100px"
             max-height="100px"
             style="background-color: #68ffd1; border-radius: 100%"
@@ -46,17 +46,17 @@
           ></v-img>
         </nuxt-link>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          {{ $t('header4') }}
+          <nuxt-link to="/artists"> {{ $t('header4') }} </nuxt-link>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          {{ $t('header5') }}
+          <nuxt-link to="/cart"> {{ $t('header5') }} </nuxt-link>
           <font-awesome-icon
             icon="fa-solid fa-shopping-bag"
             font-size="1.25em"
           />
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          {{ $t('header6') }}
+          <nuxt-link to="/profile"> {{ $t('header6') }} </nuxt-link>
           <font-awesome-icon
             icon="fa-solid fa-circle-user"
             font-size="1.25em"
@@ -87,22 +87,38 @@
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header3') }} </v-list-item-content>
+          <nuxt-link to="/products"
+            ><v-list-item-content>
+              {{ $t('header3') }}
+            </v-list-item-content></nuxt-link
+          >
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header4') }} </v-list-item-content>
+          <nuxt-link to="/artists"
+            ><v-list-item-content>
+              {{ $t('header4') }}
+            </v-list-item-content></nuxt-link
+          >
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header5') }} </v-list-item-content>
+          <nuxt-link to="/cart"
+            ><v-list-item-content>
+              {{ $t('header5') }}
+            </v-list-item-content></nuxt-link
+          >
           <v-list-item-avatar>
             <font-awesome-icon icon="fa-solid fa-bag-shopping" />
           </v-list-item-avatar>
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header6') }}</v-list-item-content>
+          <nuxt-link to="/profile"
+            ><v-list-item-content>
+              {{ $t('header6') }}
+            </v-list-item-content></nuxt-link
+          >
           <v-list-item-avatar>
             <font-awesome-icon icon="fa-solid fa-circle-user" />
           </v-list-item-avatar>
@@ -125,26 +141,36 @@
     >
       <v-row justify="center" no-gutters>
         <v-btn
-          v-for="link in links"
+          v-for="(link, index) in links"
           :key="link"
           color="white"
           text
           rounded
           class="my-2"
         >
-          {{ $t(link) }}
+          <nuxt-link :to="routes[index]">
+            {{ $t(link) }}
+          </nuxt-link>
         </v-btn>
         <v-col cols="12">
           <v-btn icon dark>
-            <a href="https://www.instagram.com/kuatrema" style="color=white; text-decoration=none"> 
-            <font-awesome-icon
-              icon="fa-brands fa-instagram"
-              font-size="1.5em"
-            />
+            <a
+              href="https://www.instagram.com/kuatrema"
+              style="color=white; text-decoration=none"
+            >
+              <font-awesome-icon
+                icon="fa-brands fa-instagram"
+                font-size="1.5em"
+              />
             </a>
           </v-btn>
           <v-btn icon dark>
-           <a href="https://www.youtube.com/channel/UCid-Uf7LzHHaOxx-5x3TdZw" style="color=white; text-decoration=none"> <font-awesome-icon icon="fa-brands fa-youtube" font-size="1.5em" /></a>
+            <a
+              href="https://www.youtube.com/channel/UCid-Uf7LzHHaOxx-5x3TdZw"
+              style="color=white; text-decoration=none"
+            >
+              <font-awesome-icon icon="fa-brands fa-youtube" font-size="1.5em"
+            /></a>
           </v-btn>
           <v-btn icon dark>
             <font-awesome-icon icon="fa-brands fa-twitter" font-size="1.5em" />
@@ -193,13 +219,8 @@ export default {
       // exporting the logo from assets folder
       title: 'KUATREMA',
       // exporting the footer link names
-      links: [
-        'footer1',
-        'footer2',
-        'footer3',
-        'footer4',
-        'footer5',
-      ],
+      links: ['footer1', 'footer2', 'footer3', 'footer4', 'footer5'],
+      routes: ['/', '/products', '/artists', '/about', '/contact'],
       // hamburger menu value
       openMenu: false,
       // drawer value
@@ -220,103 +241,4 @@ export default {
   },
 }
 </script>
-<style>
-/* navbar styles */
-.navbar {
-  background: rgb(2, 0, 36);
-  background: radial-gradient(
-    circle,
-    rgba(104, 255, 209, 1) 15%,
-    rgba(5, 204, 212, 1) 99%
-  );
-}
-.cat {
-  transition: transform 0.2s;
-  font-size: 0.75em;
-  padding-top: 0.25em;
-  width: 5em;
-  font-weight: 500;
-}
-.cat1 {
-  justify-self: flex-start;
-}
-.cat2 {
-  justify-self: flex-end;
-}
-.cat:hover {
-  color: gray;
-  cursor: pointer;
-  transform: scale(1.1, 1.1);
-}
-.logo {
-  transition: transform 0.5s;
-  justify-self: center;
-  margin-bottom: 8px;
-}
-.logo:hover {
-  opacity: 0.95;
-  transform: scale(1.2, 1.2);
-}
-@media only screen and (max-width: 670px) {
-  .logo {
-    position: fixed;
-    top: 4px;
-    left: 40%;
-  }
-}
-@media only screen and (max-width: 370) {
-  .logo {
-    position: fixed;
-    top: 4px;
-    left: 38%;
-  }
-}
-/* Hamburger icon styles */
-.hamburger {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  z-index: 10;
-}
-.hamburger .line {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  margin-block: 8px;
-  border-radius: 4px;
-  transition: transform 0.5s, opacity 0.25s;
-  z-index: 10;
-}
-.hamburger.active .line:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-  z-index: 10;
-}
-.hamburger.active .line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .line:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-  z-index: 10;
-}
-/* drawer styles */
-.drawer {
-  z-index: 3;
-  padding-top: 10%;
-}
-.drawer-item {
-  padding: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-.drawer-item:hover {
-  background-color: gray;
-}
-/* footer styles */
-.right-side{
-  float:right
-}
-.v-application a{
-  all: unset;
-}
-</style>
+<style lang="scss" src="../assets/css/default.scss"></style>
