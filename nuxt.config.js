@@ -39,8 +39,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/i18n'],
-
+  modules: [
+    '@nuxtjs/i18n',   // enables language module
+    '@nuxtjs/axios', // enables Nuxt Axios module
+    '@nuxtjs/auth', // enables Nuxt Auth module],
+  ],
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
@@ -77,9 +80,39 @@ export default {
       messages: {en, es}
     },
   },
-
+  // Authentification module configurations
+  auth: {
+    strategies: {
+        local: {
+            endpoints: {
+                // these are the API endpoints we created in Express
+                login: {
+                    url: '/api/users/login',
+                    method: 'post',
+                    propertyName: 'token'
+                },
+                logout: true,
+                user: {
+                    url: '/api/users/user',
+                    method: 'get',
+                    propertyName: 'user'
+                }
+            },
+            tokenRequired: true,
+            tokenType: "Bearer"
+        }
+    },
+    redirect: {
+          login: '/user/login', // User will be redirected to this path if login is required
+          logout: '/', // User will be redirected to this path if after logout, current route is protected
+          home: '/' // User will be redirect to this path after login if accessed login page directly
+    },
+    rewriteRedirects: true,
+},
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+
+    },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [
     '~/api/index.js'

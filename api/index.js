@@ -7,11 +7,12 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Require & Import API routes
-const users = require('./routes/users')
-const products = require('./routes/products')
+const user = require('./routes/users')
+const product = require('./routes/products')
 // Use API Routes
-app.use(users)
-app.use(products)
+app.use(user)
+app.use(product)
+
 // Export the server middleware
 module.exports = {
   path: '/api',

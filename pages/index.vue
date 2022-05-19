@@ -11,16 +11,18 @@
             >{{ $t('featTitle1') }}
           </v-card-title>
           <v-card-actions>
-            <v-btn
-              class="mb-7"
-              rounded
-              x-large
-              tile
-              elevation="10"
-              style="postion: relative; left: 28%"
-            >
-              {{ $t('featAction') }}
-            </v-btn>
+            <nuxt-link to="/offers">
+              <v-btn
+                class="mb-7"
+                rounded
+                x-large
+                tile
+                elevation="10"
+                style="postion: relative; left: 28%"
+              >
+                {{ $t('featAction') }}
+              </v-btn>
+            </nuxt-link>
           </v-card-actions>
         </div>
         <v-carousel
@@ -46,16 +48,18 @@
             {{ $t('featTitle2') }}
           </v-card-title>
           <v-card-actions>
-            <v-btn
-              class="mb-7 align-center"
-              rounded
-              x-large
-              tile
-              elevation="10"
-              style="postion: relative; left: 25%; bottom: 15%"
-            >
-              {{ $t('featAction') }}
-            </v-btn>
+            <nuxt-link to="/">
+              <v-btn
+                class="mb-7 align-center"
+                rounded
+                x-large
+                tile
+                elevation="10"
+                style="postion: relative; left: 25%; bottom: 15%"
+              >
+                {{ $t('featAction') }}
+              </v-btn>
+            </nuxt-link>
           </v-card-actions>
         </div>
       </div>
@@ -64,7 +68,7 @@
 </template>
 
 <script>
-import PlayerVue from '../components/player/player.vue'
+import PlayerVue from '~/components/player/player.vue'
 export default {
   path: '/',
   name: 'HomePage',
@@ -72,4 +76,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="../assets/css/index.scss"> </style>
+<style lang="scss" scoped src="../assets/css/index.scss">
+</style>

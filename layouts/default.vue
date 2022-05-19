@@ -27,10 +27,10 @@
         </v-flex>
         <!-- Standard navbar -->
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          <p>{{ $t('header1') }}</p>
+         <nuxt-link to="/sweats"> <p>{{ $t('header1') }}</p></nuxt-link>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          {{ $t('header2') }}
+         <nuxt-link to="/tees"> <p>{{ $t('header2') }}</p></nuxt-link>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
           <nuxt-link to="/products"> {{ $t('header3') }} </nuxt-link>
