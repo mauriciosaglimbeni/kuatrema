@@ -1,5 +1,4 @@
 <template>
-  <!-- <p> {{$route.path}}</p> -->
   <v-container>
     <v-row>
       <v-col v-for="n in 5" :key="n" cols="2.4">

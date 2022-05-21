@@ -1,5 +1,7 @@
 <template>
-<ProductTabs></ProductTabs>
+  <main>
+    <ProductTabs></ProductTabs>
+  </main>
 </template>
 
 <script>
