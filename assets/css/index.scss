@@ -1,52 +1,123 @@
 .slogan {
-    letter-spacing: 0.5rem;
-    text-align: center;
-    background-image: linear-gradient(
-      -225deg,
+  letter-spacing: 0.5rem;
+  text-align: center;
+  background-image: linear-gradient(-225deg,
       #0ecec5 0%,
       #3b7cd6 29%,
       #5911a7 67%,
-      #cf1d8b 100%
-    );
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    background-clip: text;
-  
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 5s linear infinite;
-    display: inline-block;
+      #cf1d8b 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
   }
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
+}
+
+.feat-card {
+  margin: 1.5em 0 1.5em 0;
+  padding: 2em;
+  align-content: center;
+  justify-content: center;
+  height: 30em;
+
+  @media (min-width: 550px) and (max-width: 980px) {
+    height: 25em;
+
   }
-  .feat-card {
-    margin: 1.5em 0 1.5em 0;
-    padding: 2em;
-    align-content: center;
+
+  @media (max-width: 550px) {
     justify-content: center;
-  }
-  .featTitle {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.112);
-    letter-spacing: 2px;
-    margin-bottom: 2em;
-  }
-  .feat-card-1 {
-    background: url('https://horciong.sirv.com/bannerbg1.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-  .feat-card-2 {
-    background: url('https://horciong.sirv.com/bannerbg2.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-  .featAvatar {
     height: 20em;
-    width: 20em;
-    background-color: blue;
   }
+}
+
+.flex-wrapper {
+  gap: 40%;
+  justify-content: space-around;
+
+
+  @media (min-width: 551px) and (max-width: 980px) {
+    gap: 20%;
+    justify-content: space-around;
+  }
+
+  @media (max-width: 550px) {
+    justify-content: center;
+    gap: 10%;
+  }
+
+}
+
+.featTitle {
+  color: white;
+  letter-spacing: 6px;
+  margin-bottom: 2em;
+  font-size: 46px;
+
+  @media (min-width: 551px) and (max-width: 980px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 20px;
+  }
+}
+
+.card-info {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 551px) and (max-width: 980px) {
+    letter-spacing: 3px;
+    width: 30%;
+
+  }
+
+  @media (max-width: 550px) {
+    letter-spacing: 0px;
+    width: 55%;
+  }
+}
+
+.feat-card-1 {
+  background: url('https://horciong.sirv.com/bannerbg1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.feat-card-2 {
+  background: url('https://horciong.sirv.com/bannerbg2.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5em;
+}
+
+.carousel-wrapper {
+  width: 270px;
+  height: 26em;
+
+  @media (min-width: 551px) and (max-width: 980px) {
+    height: 21em;
+  }
+
+  @media (max-width: 550px) {
+    height: 16em;
+  }
+}
+
+.featAvatar {
+  background-color: blue;
+}

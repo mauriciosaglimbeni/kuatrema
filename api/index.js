@@ -4,8 +4,8 @@ const db = require('./db')
 // Create express instancee
 const app = express()
 // Init body-parser options (inbuilt with express)
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 // Require & Import API routes
 const user = require('./routes/users')
 const product = require('./routes/products')

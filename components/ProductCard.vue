@@ -4,15 +4,14 @@
       <v-img
         contain
         class="white--text responsive-img"
-        :src="currentImg"
-        @mouseover="currentImg = otherImage"
-        @mouseout="currentImg = myImage"
+        :src="productImg1"
+
       >
       </v-img>
       <div class="card-info-1">
-        <span class="boldish"> HOLA </span>
+        <span class="boldish"> {{ productName }} </span>
         <br />
-        60 euri
+        {{ productPrice }}
       </div>
       <v-fade-transition>
         <v-overlay
@@ -20,8 +19,7 @@
           class="overlay"
           absolute
           opacity="0"
-          @mouseover="currentImg = otherImage"
-          @mouseout="currentImg = myImage"
+
         >
           <div class="button-holder">
             <button class="size-button">S</button>
@@ -41,16 +39,31 @@
 
 <script>
 export default {
-  data() {
-    return {
-      currentImg:
-        'https://cdn.kaotikobcn.com/pub/media/amasty/webp/catalog/product/cache/8575a3349e4da7888124ac9af13be753/a/k/ak018-02-g002-social_1_jpg.webp',
-      myImage:
-        'https://cdn.kaotikobcn.com/pub/media/amasty/webp/catalog/product/cache/8575a3349e4da7888124ac9af13be753/a/k/ak018-02-g002-social_1_jpg.webp',
-      otherImage:
-        'https://cdn.kaotikobcn.com/pub/media/amasty/webp/catalog/product/cache/8575a3349e4da7888124ac9af13be753/a/k/ak018-02-g002-sudadera-2_jpg.webp.._2_jpg.webp',
-    }
+  // async asyncData(context) {
+  //   const { data } = await context.$axios.get('/api/products')
+  //   return{
+  //     products: data,
+  //     }
+  // }, 
+          //  @mouseover="img1 = img2"
+          // @mouseout="img1 = img2"
+  props: {
+    productTitle: String,
+    productPrice: Number,
+    productImg1: String,
+    productImg2: String
   },
+  data() {
+  //   return {
+  //   //   currentImg:
+  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-mock-back.png',
+  //   //   myImage:
+  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-mock-back.png',
+  //   //   otherImage:
+  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-photo.jpg',
+  //   // }
+  // },
+}
 }
 </script>
 

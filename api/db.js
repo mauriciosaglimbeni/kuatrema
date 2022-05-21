@@ -11,3 +11,4 @@ db.once('open', function callback() {
   console.log('MongoDB Connected...')
 })
 module.exports = db
+

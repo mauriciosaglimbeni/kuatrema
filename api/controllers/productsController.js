@@ -4,7 +4,7 @@ const Product = require('../models/Product')
 // Get all productsAAAAAAAAAAAAAAAAAAAAAAAAAAA
 module.exports.list = function (req, res, next) {
   Product.find(
-    {},{sort:'date'},
+    {},
     (err, products) => {
       if (err) {
         return res.status(500).json({

@@ -5,9 +5,9 @@
     <h2 class="slogan">WE DO WHAT WE LIKE</h2>
     <!-- Featured cards -->
     <v-card elevation="2" outlined class="feat-card feat-card-1">
-      <div class="d-flex flex-no-wrap justify-space-around align-center">
-        <div>
-          <v-card-title class="featTitle text-h3 font-weight-bold"
+      <div class="d-flex flex-no-wrap  flex-wrapper">
+        <div class="card-info">
+          <v-card-title class="featTitle -md font-weight-bold"
             >{{ $t('featTitle1') }}
           </v-card-title>
           <v-card-actions>
@@ -18,49 +18,51 @@
                 x-large
                 tile
                 elevation="10"
-                style="postion: relative; left: 28%"
               >
                 {{ $t('featAction') }}
               </v-btn>
             </nuxt-link>
           </v-card-actions>
         </div>
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          show-arrows-on-hover
-          class="ma-3 featAvatar"
-        >
-        </v-carousel>
+        <div class="carousel-wrapper">
+          <v-carousel
+            cycle
+            hide-delimiter-background
+            show-arrows-on-hover
+            class="featAvatar"
+            height="100%"
+          >
+          </v-carousel>
+        </div>
       </div>
     </v-card>
-    <v-card elevation="2" outlined class="feat-card feat-card-2">
-      <div class="d-flex flex-no-wrap justify-space-around align-center">
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          show-arrows-on-hover
-          class="ma-3 featAvatar"
-        >
-        </v-carousel>
-        <div>
-          <v-card-title class="text-h3 featTitle font-weight-bold color">
+    <v-card elevation="2" outlined class="feat-card feat-card-2 ">
+      <div class="d-flex flex-no-wrap flex-wrapper">
+        <div class="carousel-wrapper">
+          <v-carousel
+            cycle
+            hide-delimiter-background
+            show-arrows-on-hover
+            class="featAvatar"
+            height="100%"
+          >
+          </v-carousel>
+        </div>
+        <div class="card-info">
+          <v-card-title class=" featTitle font-weight-bold color">
             {{ $t('featTitle2') }}
           </v-card-title>
-          <v-card-actions>
             <nuxt-link to="/">
               <v-btn
-                class="mb-7 align-center"
+                class="mb-7"
                 rounded
                 x-large
                 tile
                 elevation="10"
-                style="postion: relative; left: 25%; bottom: 15%"
               >
                 {{ $t('featAction') }}
               </v-btn>
             </nuxt-link>
-          </v-card-actions>
         </div>
       </div>
     </v-card>
@@ -76,5 +78,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="../assets/css/index.scss">
+<style lang="scss"  src="../assets/css/index.scss">
 </style>
