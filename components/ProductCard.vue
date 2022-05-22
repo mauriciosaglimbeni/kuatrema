@@ -1,17 +1,22 @@
 <template>
-  <v-hover v-slot="{ hover }">
+  <v-hover  v-slot="{ hover }" >
     <v-card elevation="0" class="card">
       <v-img
+        v-if="hovered"
+        contain
+        class="white--text responsive-img"
+        :src="productImg2"
+      />
+      <v-img
+        v-else
         contain
         class="white--text responsive-img"
         :src="productImg1"
-
-      >
-      </v-img>
+      />
       <div class="card-info-1">
         <span class="boldish"> {{ productName }} </span>
         <br />
-        {{ productPrice }}
+        {{ productPrice }}$
       </div>
       <v-fade-transition>
         <v-overlay
@@ -19,7 +24,8 @@
           class="overlay"
           absolute
           opacity="0"
-
+          @mouseover="hovered = true"
+          @mouseout="hovered = false"
         >
           <div class="button-holder">
             <button class="size-button">S</button>
@@ -39,87 +45,14 @@
 
 <script>
 export default {
-  // async asyncData(context) {
-  //   const { data } = await context.$axios.get('/api/products')
-  //   return{
-  //     products: data,
-  //     }
-  // }, 
-          //  @mouseover="img1 = img2"
-          // @mouseout="img1 = img2"
-  props: {
-    productTitle: String,
-    productPrice: Number,
-    productImg1: String,
-    productImg2: String
-  },
+  // Data to be filled by the parent component
+  props: ['productName', 'productPrice', 'productImg1', 'productImg2'],
   data() {
-  //   return {
-  //   //   currentImg:
-  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-mock-back.png',
-  //   //   myImage:
-  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-mock-back.png',
-  //   //   otherImage:
-  //   //     'https://horciong.sirv.com/products/TEARS/ktrm-tears-photo.jpg',
-  //   // }
-  // },
-}
+    return {
+      hovered: false,
+    }
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-.responsive {
-  max-width: auto;
-  height: 100%;
-}
-.card {
-  max-width: 25%;
-  height: auto;
-  position: relative;
-  @media (max-width: 980px) {
-    max-width: 33%;
-  }
-}
-.card-info-1 {
-  font-size: 1.1rem;
-  text-align: center;
-}
-.boldish {
-  font-weight: 500;
-}
-.overlay {
-  height: 140%;
-  display: flex;
-  justify-content: center;
-}
-.button-holder {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-}
-button {
-  width: fit-content;
-  height: 25px;
-  padding: 2px 5px 2px 5px;
-  text-align: center;
-  display: flex;
-  align-content: center;
-  font-size: 14px;
-}
-.size-button {
-  background-color: rgb(255, 251, 251);
-  color: black;
-  &:hover,
-  &:focus {
-    background-color: rgb(0, 0, 0);
-    color: white;
-  }
-}
-.add-button {
-  margin-top: 15px;
-  background-color: rgb(32, 32, 32);
-  &:hover {
-    background-color: rgb(70, 70, 70);
-  }
-}
-</style>
+<style lang="scss" scoped src="../assets/css/product.scss">

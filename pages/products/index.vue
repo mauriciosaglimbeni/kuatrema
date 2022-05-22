@@ -10,16 +10,19 @@
     >
       <span class="sr-only">Loading...</span>
     </div>
-    <v-container v-else fluid>
-      <v-row :key="x" d-flex justify="center" :v-for="(product,x) in products">
-        
-        <!-- <ProductCard
-          :product-title="product.productName"
+    <v-container fluid>
+      <v-row
+        v-for="product in products"
+        :key="product._id"
+        d-flex
+        justify="center"
+      >
+        <ProductCard
+          :product-name="product.productName"
           :product-price="product.price"
           :product-img1="product.img1"
           :product-img2="product.img2"
-        ></ProductCard> -->
-         {{products[0].productName}}<br />
+        ></ProductCard>
       </v-row>
     </v-container>
   </main>
@@ -27,11 +30,11 @@
 
 <script>
 import ProductTabs from '~/components/ProductTabs.vue'
-// import ProductCard from '~/components/ProductCard.vue'
+import ProductCard from '~/components/ProductCard.vue'
 export default {
   path: '/',
   name: 'ProductsPage',
-  components: { ProductTabs },
+  components: { ProductTabs, ProductCard },
   // variables
   data() {
     return {
@@ -39,23 +42,12 @@ export default {
       productsLoading: false,
     }
   },
-  // call the get Poducts method
-  created() {
-    this.getAllProducts()
-  },
-  // get products from api and save into products array
-  methods: {
-    async getAllProducts() {
-      this.productsLoading = true
-      try {
-        const data = await this.$axios.$get('api/products')
-        this.products = data
-        this.productsLoading = false
-      } catch (err) {
-        this.productsLoading = false
-        alert('Error getting data')
-      }
-    },
+  // fetch data from api
+  async fetch() {
+    this.productsLoading = true
+    const data = await this.$axios.$get('api/products')
+    this.products = data
+    this.productsLoading = false
   },
 }
 </script>
