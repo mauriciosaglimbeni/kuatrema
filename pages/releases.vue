@@ -31,8 +31,8 @@
 import ProductTabs from '~/components/ProductTabs.vue'
 import ProductCard from '~/components/ProductCard.vue'
 export default {
-  path: '../offers',
-  name: 'OffersPage',
+  path: '../releases',
+  name: 'ReleasesPage',
   components: { ProductTabs, ProductCard },
   // variables
   data() {
@@ -44,7 +44,7 @@ export default {
   // fetch data from api
   async fetch() {
     this.productsLoading = true
-    const data = await this.$axios.$get('api/offers')
+    const data = await this.$axios.$get('api/releases')
     this.products = data
     this.productsLoading = false
   },

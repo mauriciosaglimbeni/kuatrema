@@ -93,21 +93,23 @@
 }
 
 .feat-card-1 {
-  background: url('https://horciong.sirv.com/bannerbg1.jpg');
+  background: url('https://kuatrema.sirv.com/bannerbg1.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .feat-card-2 {
-  background: url('https://horciong.sirv.com/bannerbg2.jpg');
+  background: url('https://kuatrema.sirv.com/bannerbg2.jpg');
   background-size: cover;
   background-position: center;
   margin-bottom: 5em;
 }
 
 .carousel-wrapper {
-  width: 270px;
-  height: 26em;
+  width: 300px;
+  height: 27em;
+
+  z-index: 2;
 
   @media (min-width: 551px) and (max-width: 980px) {
     height: 21em;
@@ -118,6 +120,12 @@
   }
 }
 
-.featAvatar {
-  background-color: blue;
+.box1 {
+  border: 10px solid rgb(1, 2, 33);
+  box-shadow: 10px 5px 20px 10px rgba(228, 31, 106, 0.75);
+}
+
+.box2 {
+  border: 10px solid rgb(83, 36, 8);
+  box-shadow: -10px 5px 20px 10px rgb(195, 96, 9);
 }

@@ -1,99 +1,113 @@
 /* navbar styles */
 .navbar {
-    background: rgb(2, 0, 36);
-    background: radial-gradient(
-      circle,
+  background: rgb(2, 0, 36);
+  background: radial-gradient(circle,
       rgba(104, 255, 209, 1) 15%,
-      rgba(5, 204, 212, 1) 99%
-    );
-  }
-  .cat {
-    transition: transform 0.2s;
-    font-size: 0.75em;
-    padding-top: 0.25em;
-    width: 5em;
-    font-weight: 500;
-  }
-  .cat1 {
-    justify-self: flex-start;
-  }
-  .cat2 {
-    justify-self: flex-end;
-  }
-  .cat:hover {
-    color: gray;
-    cursor: pointer;
-    transform: scale(1.1, 1.1);
-  }
+      rgba(5, 204, 212, 1) 99%);
+}
+
+.cat {
+  transition: transform 0.2s;
+  font-size: 0.75em;
+  padding-top: 0.25em;
+  width: 5em;
+  font-weight: 500;
+}
+
+.cat1 {
+  justify-self: flex-start;
+}
+
+.cat2 {
+  justify-self: flex-end;
+}
+
+.cat:hover {
+  color: gray;
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+.logo {
+  transition: transform 0.5s;
+  justify-self: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.logo:hover {
+  opacity: 0.95;
+  transform: scale(1.2, 1.2);
+}
+
+@media only screen and (max-width: 670px) {
   .logo {
-    transition: transform 0.5s;
     justify-self: center;
-    margin-bottom: 8px;
-    cursor: pointer;
+    margin-right: 30px;
   }
-  .logo:hover {
-    opacity: 0.95;
-    transform: scale(1.2, 1.2);
+}
+
+@media only screen and (min-width: 670px) and (max-width: 970px) {
+  .logo {
+    justify-self: auto;
+    margin-right: 30px;
   }
-  @media only screen and (max-width: 670px) {
-    .logo {
-      position: fixed;
-      top: 4px;
-      left: 40%;
-    }
-  }
-  @media only screen and (max-width: 370) {
-    .logo {
-      position: fixed;
-      top: 4px;
-      left: 38%;
-    }
-  }
-  /* Hamburger icon styles */
-  .hamburger {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .hamburger .line {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin-block: 8px;
-    border-radius: 4px;
-    transition: transform 0.5s, opacity 0.25s;
-    z-index: 10;
-  }
-  .hamburger.active .line:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
-    z-index: 10;
-  }
-  .hamburger.active .line:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active .line:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
-    z-index: 10;
-  }
-  /* drawer styles */
-  .drawer {
-    z-index: 3;
-    padding-top: 10%;
-  }
-  .drawer-item {
-    padding: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .drawer-item:hover {
-    background-color: gray;
-  }
-  /* footer styles */
-  .right-side {
-    float: right;
-  }
-  .v-application a {
-    all: unset;
-  }
+}
+
+/* Hamburger icon styles */
+.hamburger {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger .line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin-block: 8px;
+  border-radius: 4px;
+  transition: transform 0.5s, opacity 0.25s;
+  z-index: 10;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+  z-index: 10;
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+  z-index: 10;
+}
+
+/* drawer styles */
+.drawer {
+  z-index: 3;
+  padding-top: 10%;
+}
+
+.drawer-item {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.drawer-item:hover {
+  background-color: gray;
+}
+
+/* footer styles */
+.right-side {
+  float: right;
+}
+
+.v-application a {
+  all: unset;
+}

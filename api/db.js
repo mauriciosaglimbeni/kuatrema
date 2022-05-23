@@ -1,4 +1,6 @@
+
 const mongoose = require('mongoose')
+
 // mongodb database connection string.  mongoose creates the mongo db automatically.
 mongoose.connect('mongodb://localhost/kuatrema', {
   useNewUrlParser: true,

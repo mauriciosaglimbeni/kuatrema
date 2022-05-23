@@ -1,8 +1,12 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="n in 5" :key="n" cols="2.4">
-        <nuxt-link :to="routes[n - 1]" class="button" exact-active-class="active">
+      <v-col v-for="n in 6" :key="n" cols="2.2">
+        <nuxt-link
+          :to="localePath(routes[n - 1])"
+          class="button"
+          exact-active-class="active"
+        >
           {{ $t(routeNames[n - 1]) }}
         </nuxt-link>
       </v-col>
@@ -14,15 +18,28 @@
 export default {
   data() {
     return {
-      routes: ['/sweats', '/tees', '/products', '/accesories', '/offers'],
-      routeNames: ['header1', 'header2', 'header3', 'accesories', 'offers'],
+      routes: [
+        '/sweats',
+        '/tees',
+        '/accesories',
+        '/products',
+        '/releases',
+        '/offers',
+      ],
+      routeNames: [
+        'header1',
+        'header2',
+        'accesories',
+        'header3',
+        'releases',
+        'offers',
+      ],
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-
 .button {
   cursor: pointer;
   display: flex;
@@ -46,6 +63,6 @@ export default {
     rgba(166, 120, 236, 1) 53%,
     rgba(5, 204, 212, 1) 100%
   );
- pointer-events: none;
+  pointer-events: none;
 }
 </style>

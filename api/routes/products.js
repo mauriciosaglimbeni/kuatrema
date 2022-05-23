@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const router = Router({mergeParams: true})
+const router = Router({ mergeParams: true })
 // Initialize Controller
 const productsController = require('../controllers/productsController')
 // Get All
@@ -9,6 +9,8 @@ router.get('/products', productsController.list)
 router.get('/products/:id', productsController.show)
 // get Offers
 router.get('/offers', productsController.listOffers)
+// get Releases
+router.get('/releases', productsController.listReleases)
 // get Sweatshirts
 router.get('/sweats', productsController.listSweat)
 // get Tshirts

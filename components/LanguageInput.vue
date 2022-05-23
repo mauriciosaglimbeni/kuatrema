@@ -1,12 +1,18 @@
 <template>
-  <div class="lang-dropdown" >
-    <select v-model="$i18n.locale" @change="spain = !spain">
-      <option v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">
-        {{ lang.name }}
-      </option>
+  <div class="lang-dropdown">
+
+     <select v-model="$i18n.locale" @change="spain = !spain">
+        <option
+          v-for="locale in $i18n.locales"
+          :key="locale.code"
+          :value="locale.code"
+        >
+          {{ locale.name }}
+        </option> 
     </select>
-    <i  v-if="!spain " class="sl-flag flag-usa"></i>
-    <i  v-else class="sl-flag flag-spain"></i>
+
+    <i v-if="!spain" class="sl-flag flag-usa"></i>
+    <i v-else class="sl-flag flag-spain"></i>
   </div>
 </template>
 
@@ -16,6 +22,11 @@ export default {
     return {
       spain: true,
     }
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales
+    },
   },
 }
 </script>
@@ -52,6 +63,6 @@ option {
 .flag-spain {
   background-size: cover;
   background-position: center center;
-  background-image: url('https://countryflagsapi.com/png/es')
+  background-image: url('https://countryflagsapi.com/png/es');
 }
 </style>

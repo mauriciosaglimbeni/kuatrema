@@ -11,10 +11,10 @@
         autoplay
         muted
         loop
-        poster="https://horciong.sirv.com/KuatremaAdd1.mp4?thumbnail=1920"
+        poster="https://kuatrema.sirv.com/KuatremaAdd1.mp4?thumbnail=1920"
       >
         <source
-          src="https://horciong.sirv.com/KuatremaAdd1.mp4"
+          src="https://kuatrema.sirv.com/KuatremaAdd1.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.

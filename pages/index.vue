@@ -5,20 +5,14 @@
     <h2 class="slogan">WE DO WHAT WE LIKE</h2>
     <!-- Featured cards -->
     <v-card elevation="2" outlined class="feat-card feat-card-1">
-      <div class="d-flex flex-no-wrap  flex-wrapper">
+      <div class="d-flex flex-no-wrap flex-wrapper">
         <div class="card-info">
           <v-card-title class="featTitle -md font-weight-bold"
             >{{ $t('featTitle1') }}
           </v-card-title>
           <v-card-actions>
-            <nuxt-link to="/offers">
-              <v-btn
-                class="mb-7"
-                rounded
-                x-large
-                tile
-                elevation="10"
-              >
+            <nuxt-link :to="localePath('/releases')">
+              <v-btn class="mb-7" rounded x-large tile elevation="10">
                 {{ $t('featAction') }}
               </v-btn>
             </nuxt-link>
@@ -29,40 +23,50 @@
             cycle
             hide-delimiter-background
             show-arrows-on-hover
-            class="featAvatar"
+            class="box1"
             height="100%"
           >
+            <!-- Cycle through releases  -->
+            <v-carousel-item
+              v-for="product in releases"
+              :key="product.id"
+              :src="product.img2"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            ></v-carousel-item>
           </v-carousel>
         </div>
       </div>
     </v-card>
-    <v-card elevation="2" outlined class="feat-card feat-card-2 ">
+    <v-card elevation="2" outlined class="feat-card feat-card-2">
       <div class="d-flex flex-no-wrap flex-wrapper">
-        <div class="carousel-wrapper">
+        <div class="carousel-wrapper ">
           <v-carousel
             cycle
             hide-delimiter-background
             show-arrows-on-hover
-            class="featAvatar"
             height="100%"
+            class="box2"
           >
+            <!-- Cycle through offers  -->
+            <v-carousel-item
+              v-for="product in offers"
+              :key="product.id"
+              :src="product.img1"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            ></v-carousel-item>
           </v-carousel>
         </div>
         <div class="card-info">
-          <v-card-title class=" featTitle font-weight-bold color">
+          <v-card-title class="featTitle font-weight-bold color">
             {{ $t('featTitle2') }}
           </v-card-title>
-            <nuxt-link to="/">
-              <v-btn
-                class="mb-7"
-                rounded
-                x-large
-                tile
-                elevation="10"
-              >
-                {{ $t('featAction') }}
-              </v-btn>
-            </nuxt-link>
+          <nuxt-link :to="localePath('/offers')">
+            <v-btn class="mb-7" rounded x-large tile elevation="10">
+              {{ $t('featAction') }}
+            </v-btn>
+          </nuxt-link>
         </div>
       </div>
     </v-card>
@@ -75,6 +79,20 @@ export default {
   path: '/',
   name: 'HomePage',
   components: { PlayerVue },
+  data() {
+    return {
+      releases: [],
+      offers: [],
+    }
+  },
+  // fetch offers and releases from api
+  async fetch() {
+    const releases = await this.$axios.$get('api/releases')
+    this.releases = releases
+
+    const offers = await this.$axios.$get('api/offers')
+    this.offers = offers
+  },
 }
 </script>
 

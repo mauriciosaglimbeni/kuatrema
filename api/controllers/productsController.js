@@ -18,8 +18,8 @@ module.exports.list = function (req, res, next) {
 
 // Get one product
 module.exports.show = function (req, res) {
-  const id = req.params.id
-  Product.findOne({ _id: id }, function (err, products) {
+  const productName = req.params.productName
+  Product.findOne({ _productName: productName }, function (err, products) {
     if (err) {
       return res.status(500).json({
         message: 'Error getting product.',
@@ -48,7 +48,20 @@ module.exports.listOffers = function (req, res, next) {
     }
   )
 }
-
+// Get all products that are releases
+module.exports.listReleases = function (req, res, next) {
+  Product.find(
+    {  isFeat: true },
+    (err, products) => {
+      if (err) {
+        return res.status(500).json({
+          message: 'Error getting offers.',
+        })
+      }
+      return res.json(products)
+    }
+  )
+}
 // Get products from each category
 // sweats
 module.exports.listSweat = function (req, res, next) {

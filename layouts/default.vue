@@ -18,7 +18,7 @@
             class="hamburger"
             d-lg
             :class="{ active: openMenu }"
-            @click=";(drawer = !drawer), (openMenu = drawer)"
+            @click="(drawer = !drawer)"
           >
             <span class="line"></span>
             <span class="line"></span>
@@ -27,18 +27,24 @@
         </v-flex>
         <!-- Standard navbar -->
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-         <nuxt-link to="/sweats"> <p>{{ $t('header1') }}</p></nuxt-link>
+          <nuxt-link :to="localePath('/releases')">
+            <p>{{ $t('releases') }}</p></nuxt-link
+          >
         </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-         <nuxt-link to="/tees"> <p>{{ $t('header2') }}</p></nuxt-link>
+          <nuxt-link :to="localePath('/offers')">
+            <p>{{ $t('offers') }}</p></nuxt-link
+          >
         </v-flex>
         <v-flex mt-5 class="text-center cat cat1 hidden-sm-and-down">
-          <nuxt-link to="/products"> {{ $t('header3') }} </nuxt-link>
+          <nuxt-link :to="localePath('products')">
+            {{ $t('header3') }}
+          </nuxt-link>
         </v-flex>
-        <nuxt-link to="/">
+        <nuxt-link :to="localePath('/')">
           <!-- logo -->
           <v-img
-            src="https://horciong.sirv.com/logo.png"
+            src="https://kuatrema.sirv.com/logo.png"
             max-width="100px"
             max-height="100px"
             style="background-color: #68ffd1; border-radius: 100%"
@@ -46,17 +52,21 @@
           ></v-img>
         </nuxt-link>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <nuxt-link to="/artists"> {{ $t('header4') }} </nuxt-link>
+          <nuxt-link :to="localePath('/artists')">
+            {{ $t('header4') }}
+          </nuxt-link>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <nuxt-link to="/cart"> {{ $t('header5') }} </nuxt-link>
+          <nuxt-link :to="localePath('/cart')"> {{ $t('header5') }} </nuxt-link>
           <font-awesome-icon
             icon="fa-solid fa-shopping-bag"
             font-size="1.25em"
           />
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <nuxt-link to="/profile"> {{ $t('header6') }} </nuxt-link>
+          <nuxt-link :to="localePath('/profile')">
+            {{ $t('header6') }}
+          </nuxt-link>
           <font-awesome-icon
             icon="fa-solid fa-circle-user"
             font-size="1.25em"
@@ -74,28 +84,34 @@
       dark
       temporary
       class="drawer"
+      @transitionend="openMenu = drawer"
     >
       <v-list-item class="drawer-title"> K U A T R E M A </v-list-item>
 
       <v-list dense>
         <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header1') }} </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item class="drawer-item">
-          <v-list-item-content> {{ $t('header2') }} </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item class="drawer-item">
-          <nuxt-link to="/products"
-            ><v-list-item-content>
+          <nuxt-link :to="localePath('/products')">
+            <v-list-item-content>
               {{ $t('header3') }}
-            </v-list-item-content></nuxt-link
-          >
+            </v-list-item-content>
+          </nuxt-link>
         </v-list-item>
-
         <v-list-item class="drawer-item">
-          <nuxt-link to="/artists"
+          <nuxt-link :to="localePath('/releases')"
+            ><v-list-item-content>
+              {{ $t('releases') }}
+            </v-list-item-content>
+          </nuxt-link>
+        </v-list-item>
+        <v-list-item class="drawer-item">
+          <nuxt-link :to="localePath('/offers')"
+            ><v-list-item-content>
+              {{ $t('offers') }}
+            </v-list-item-content>
+          </nuxt-link>
+        </v-list-item>
+        <v-list-item class="drawer-item">
+          <nuxt-link :to="localePath('/artists')"
             ><v-list-item-content>
               {{ $t('header4') }}
             </v-list-item-content></nuxt-link
@@ -103,7 +119,7 @@
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <nuxt-link to="/cart"
+          <nuxt-link :to="localePath('/cart')"
             ><v-list-item-content>
               {{ $t('header5') }}
             </v-list-item-content></nuxt-link
@@ -114,7 +130,7 @@
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <nuxt-link to="/profile"
+          <nuxt-link :to="localePath('/profile')"
             ><v-list-item-content>
               {{ $t('header6') }}
             </v-list-item-content></nuxt-link
@@ -148,7 +164,7 @@
           rounded
           class="my-2"
         >
-          <nuxt-link :to="routes[index]">
+          <nuxt-link :to="localePath(routes[index])">
             {{ $t(link) }}
           </nuxt-link>
         </v-btn>
@@ -216,9 +232,8 @@ export default {
     return {
       //  scroll value
       fab: false,
-      // exporting the logo from assets folder
       title: 'KUATREMA',
-      // exporting the footer link names
+      // exporting the footer link names and routes
       links: ['footer1', 'footer2', 'footer3', 'footer4', 'footer5'],
       routes: ['/', '/products', '/artists', '/about', '/contact'],
       // hamburger menu value

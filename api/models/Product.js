@@ -10,6 +10,7 @@ const Product = new Schema({
   category: {type: String, required: true, enum: ['sweat','tshirt','acc']},
   purchases: { type: Number, required: true, default: 0 },
   isOffer: { type: Boolean, required: true, default: false },
+  isFeat:  { type: Boolean, required: true, default: false },
   img1: { type: String, required: true },
   img2: { type: String },
   img3: { type: String },
