@@ -10,13 +10,12 @@
       <span class="sr-only">Loading...</span>
     </div>
     <v-container fluid>
-      <v-row
-        v-for="product in products"
-        :key="product._id"
-        d-flex
-        justify="center"
-      >
+      <v-row justify="center">
         <ProductCard
+          v-for="product in products"
+          :key="product._id"
+          d-flex
+          :product-id="product._id"
           :product-name="product.productName"
           :product-price="product.price"
           :is-offer="product.isOffer"

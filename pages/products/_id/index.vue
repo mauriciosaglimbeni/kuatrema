@@ -51,7 +51,7 @@ export default {
   },
   // fetch data from api
   async fetch() {
-    const data = await this.$axios.$get('api/products/' + this.productName)
+    const data = await this.$axios.$get('api/products/' + this._id)
     this.product = data
   },
 }
