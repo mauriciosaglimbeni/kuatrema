@@ -1,0 +1,48 @@
+// KUATREMA TEARS LIGHT
+{
+    "_id": {
+        "$oid": "6288f01026d9b7d8d4f10b26"
+    },
+    "productName": "KTRM Tears - Light",
+    "price": 49.99,
+    "category": "sweat",
+    "img1": "https://kuatrema.sirv.com/products/TEARS/ktrm-tears-mock-back.png",
+    "img2": "https://kuatrema.sirv.com/products/TEARS/ktrm-tears-photo.jpg",
+    "isFeat": true,
+    "artist": "@mauriciosaglimbeni",
+    "isClothing": true,
+    "isOffer": false,
+    "purchases": 0,
+    "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+    ]
+}
+// KUATREMA WEATHER
+{
+    "_id": {
+        "$oid": "6288f01026d9b7d8d4f10b27"
+    },
+    "productName": "KTRM Weather - Light",
+    "price": 19.99,
+    "category": "tshirt",
+    "img1": "https://kuatrema.sirv.com/products/WEATHER/ktrm-weather-mock-back.png",
+    "img2": "https://kuatrema.sirv.com/products/WEATHER/ktrm-weather-photo.jpg",
+    "img3": "https://kuatrema.sirv.com/products/WEATHER/ktrm-weather-photo-2.jpg",
+    "img4": "https://kuatrema.sirv.com/products/WEATHER/ktrm-weather-mock-front.png",
+    "isFeat": true,
+    "artist": "@mauriciosaglimbeni",
+    "isClothing": true,
+    "isOffer": false,
+    "purchases": 0,
+    "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+    ]
+}

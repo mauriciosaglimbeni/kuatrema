@@ -44,15 +44,18 @@
 export default {
   path: '/',
   name: 'ProductPage',
-  data() {
+  // fetch data from api
+
+async asyncData(context){
+    const {data} = await context.$axios.get('/api/products/' + context.route.params.id)
     return {
-      product: [],
+      product : data
     }
   },
-  // fetch data from api
-  async fetch() {
-    const data = await this.$axios.$get('api/products/' + this._id)
-    this.product = data
+  data() {
+    return {
+      
+    }
   },
 }
 </script>

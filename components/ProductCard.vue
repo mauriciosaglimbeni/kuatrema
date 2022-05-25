@@ -34,7 +34,7 @@
             @mouseover="hovered = true"
             @mouseout="hovered = false"
           >
-            <div class="button-holder">
+            <!-- <div class="button-holder">
               <button class="size-button">S</button>
               <button class="size-button">M</button>
               <button class="size-button">L</button>
@@ -43,7 +43,7 @@
             </div>
             <div class="button-holder">
               <button class="add-button">{{ $t('addToCart') }}</button>
-            </div>
+            </div> -->
           </v-overlay>
         </v-fade-transition>
       </nuxt-link>

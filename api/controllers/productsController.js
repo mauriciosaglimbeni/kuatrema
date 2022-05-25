@@ -18,19 +18,19 @@ module.exports.list = function (req, res, next) {
 
 // Get one product
 module.exports.show = function (req, res) {
-  const productName = req.params.productName
-  Product.findOne({ _productName: productName }, function (err, products) {
+  const productId = req.params.id
+  Product.findOne({ _id: productId }, function (err, product) {
     if (err) {
       return res.status(500).json({
         message: 'Error getting product.',
       })
     }
-    if (!products) {
+    if (!product) {
       return res.status(404).json({
         message: 'Inexistent product.',
       })
     }
-    return res.json(products)
+    return res.json(product)
   })
 }
 
@@ -94,7 +94,7 @@ module.exports.listTee = function (req, res, next) {
 // accesories
 module.exports.listAcc = function (req, res, next) {
   Product.find(
-    { category: 'tshirt' },
+    { category: 'accesories' },
     function (err, products) {
       if (err) {
         return res.status(500).json({
