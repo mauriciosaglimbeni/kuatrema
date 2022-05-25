@@ -27,20 +27,25 @@
             height="100%"
           >
             <!-- Cycle through releases  -->
-            <v-carousel-item
+            <nuxt-link
               v-for="product in releases"
               :key="product.id"
-              :src="product.img2"
-              reverse-transition="fade-transition"
-              transition="fade-transition"
-            ></v-carousel-item>
+              :to="localePath('/products/' + product.name)"
+            >
+              <v-carousel-item
+                :src="product.img2"
+                reverse-transition="fade-transition"
+                transition="fade-transition"
+                style="cursor: pointer;"
+              ></v-carousel-item
+            ></nuxt-link>
           </v-carousel>
         </div>
       </div>
     </v-card>
     <v-card elevation="2" outlined class="feat-card feat-card-2">
       <div class="d-flex flex-no-wrap flex-wrapper">
-        <div class="carousel-wrapper ">
+        <div class="carousel-wrapper">
           <v-carousel
             cycle
             hide-delimiter-background
@@ -49,13 +54,18 @@
             class="box2"
           >
             <!-- Cycle through offers  -->
-            <v-carousel-item
+            <nuxt-link
               v-for="product in offers"
               :key="product.id"
-              :src="product.img1"
-              reverse-transition="fade-transition"
-              transition="fade-transition"
-            ></v-carousel-item>
+              :to="localePath('/products/' + product.name)"
+            >
+              <v-carousel-item
+                :src="product.img1"
+                reverse-transition="fade-transition"
+                transition="fade-transition"
+                style="cursor: pointer;"
+              ></v-carousel-item>
+            </nuxt-link>
           </v-carousel>
         </div>
         <div class="card-info">

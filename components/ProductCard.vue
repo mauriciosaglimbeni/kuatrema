@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot="{ hover }">
     <v-card elevation="0" class="card">
-      <nuxt-link :to="localePath('/products/' + productName)">
+      <nuxt-link :to="localePath('/products/' + productId)">
         <v-img
           v-if="hovered"
           contain
@@ -53,9 +53,9 @@
 
 <script>
 export default {
-  // Data to be filled by the parent component
+
   // eslint-disable-next-line vue/require-prop-types
-  props: ['productName', 'productPrice', 'productImg1', 'productImg2','isOffer', 'productPrice2'],
+  props: ['productId','productName', 'productPrice', 'productImg1', 'productImg2','isOffer', 'productPrice2'],
   data() {
     return {
       hovered: false,

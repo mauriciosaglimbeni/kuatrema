@@ -18,6 +18,7 @@
         justify="center"
       >
         <ProductCard
+          :product-id="product._id"
           :product-name="product.productName"
           :product-price="product.price"
           :is-offer="product.isOffer"

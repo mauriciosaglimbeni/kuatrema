@@ -17,5 +17,8 @@
   "offers": "Offers",
   "releases": "Fresh",
   "accesories": "Accesories",
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
+  "sizeChoose": "Choose your size",
+  "qtyChoose": "Choose the quantity",
+  "return": " < Go back to  all products"
 }

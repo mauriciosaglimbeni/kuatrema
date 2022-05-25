@@ -17,5 +17,8 @@
   "offers": "Ofertas",
   "releases": "Novedades",
   "accesories": "Accesorios",
-  "addToCart": "Añadir al carrito"
+  "addToCart": "Añadir al carrito",
+  "sizeChoose": "Elige tu talla",
+  "qtyChoose": "Elige la cantidad",
+  "return": " < Volver a todos los productos"
 }

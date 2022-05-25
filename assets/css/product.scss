@@ -1,0 +1,120 @@
+.main-container {
+    display: flex;
+    margin: 0;
+
+    @media screen and (max-width: 860px) {
+        flex-direction: column;
+    }
+
+}
+
+// image showcase styles
+.image-showcase {
+    width: 70%;
+    height: 150vh;
+    display: flex;
+    flex-wrap: wrap;
+    border-right: 5px solid rgba(211, 211, 211, 0.486);
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 500px;
+        border-right: initial;
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 860px) {
+        width: 100%;
+        height: 800px;
+        border-right: initial;
+    }
+
+    @media screen and (min-width: 860px) and (max-width: 1400px) {
+        width: 60%;
+        height: 900px;
+    }
+
+    & div {
+        width: 50%;
+        height: fit-content;
+        z-index: 2;
+    }
+}
+
+// Item info box
+.information {
+    margin-left: 1em;
+    height: 80vh;
+    width: 30%;
+    position: fixed;
+    left: 70%;
+
+    @media screen and (max-width: 860px) {
+        width: 100%;
+        position: initial;
+        height: 80vh;
+        width: 100%;
+    }
+
+    @media screen and (min-width: 860px) and (max-width: 1400px) {
+        left: 60%;
+        width: 40%;
+    }
+
+}
+
+h1 {
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+
+.artist-name {
+    margin-left: 2em;
+    color: gray;
+    font-size: 18px;
+    margin-bottom: 1.5em;
+}
+
+// price
+.price,
+.old-price,
+offer-price {
+    margin-top: 0.5em;
+    font-size: 24px;
+    margin: 1em;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.old-price {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.offer-price {
+    color: red;
+}
+
+// size buttons
+.button-holder {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    font-size: 24px;
+    text-align: center;
+    display: block;
+    padding: 6px;
+}
+
+.size-button {
+    background-color: rgb(255, 251, 251);
+    color: black;
+
+    &:hover,
+    &:focus {
+        background-color: rgb(0, 0, 0);
+        color: white;
+    }
+}
