@@ -111,10 +111,7 @@ export default {
   },
   axios: {
   },
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
 
-  },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [
     '~/api/index.js'
