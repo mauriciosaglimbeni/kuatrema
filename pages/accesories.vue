@@ -2,7 +2,7 @@
   <main>
     <ProductTabs></ProductTabs>
     <div
-      v-if="productsLoading"
+      v-if="productLoading"
       class="spinner-border"
       style="width: 3rem; height: 3rem"
       role="status"
@@ -37,15 +37,15 @@ export default {
   data() {
     return {
       products: [],
-      productsLoading: false,
+      productLoading: false,
     }
   },
   // fetch data from api
   async fetch() {
-    this.productsLoading = true
+    this.productLoading = true
     const data = await this.$axios.$get('api/accesories')
     this.products = data
-    this.productsLoading = false
+    this.productLoading = false
   },
 }
 </script>
